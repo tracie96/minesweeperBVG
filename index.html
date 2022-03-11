@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Minesweeper</title>
+
+    <link type="text/css" rel="stylesheet" href="./css/style.css" />
+    <script src='jquery-1.11.1.min.js'></script>
+    <link rel="stylesheet" type="text/css" href="minesweeper.css">
+    <script type="text/javascript" src="js/minesweeper.js"></script>
+
+</head>
+
+<body>
+    <h1> Minesweeper </h1>
+
+    <div>
+        <select id="difficulty" onchange="setDifficulty();">
+            <option value="0">Easy</option>
+            <option value="1">Medium</option>
+            <option value="2">Hard</option>
+        </select>
+
+        <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+        <span><img src="https://img.icons8.com/emoji/48/000000/triangular-flag.png" style="position:absolute;margin-top: -5px;margin-left: -10px;"  width="1.5%" title="remaining miles"/></span>
+        <span id="mine" style="margin-left:20px"> </span>
+        <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+        <span><img src="https://img.icons8.com/external-flatart-icons-solid-flatarticons/64/000000/external-clock-interior-flatart-icons-solid-flatarticons-1.png" width="1.5%" style="position:absolute;margin-top: -5px;margin-left: -10px;" title="timer"/></span>
+        <span id="timer" style="margin-left:20px"> </span>
+        <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <div id="minesweeper-main"></div>
+            <div id="game-container"></div>
+    </div>
+
+ 
+</body>
+<script>
+    var ms = new Minecontrol('#minesweeper-main');
+    console.log(ms)
+    // I am initializing to default
+    ms.init(ms.SETTINGS.BEGINNER);
+    function setDifficulty() {
+        var difficultySelector = document.getElementById("difficulty").value;
+        switch (difficultySelector) {
+            case "0":
+                ms.init(ms.SETTINGS.BEGINNER);
+                break;
+            case "1":
+                ms.init(ms.SETTINGS.INTERMEDIATE);
+                break;
+            case "2":
+                ms.init(ms.SETTINGS.EXPERT);
+                break;
+            default:
+            // code block
+        }
+        //TODO implement me
+    }
+  
+</script>
+
+</html>
